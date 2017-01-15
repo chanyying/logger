@@ -2,7 +2,14 @@
   @author  caihanyong | caihanyong@shuidihuzhu.com
   @version 1.0 | 2017-1-15
   @example
-
+  s1: 访问地址
+  s2: 代码错误信息
+  api_time: API时间
+  router_time: 路由时间
+  api_url: API地址
+  code: 后端错误状态码
+  msg: 后端错误信息
+  <业务域>/logs/?s1=''&s2=''&code=''&msg=''
  */
 
 // 访问地址，发生错误信息的地址
@@ -14,22 +21,16 @@ const Logger = function (Vue, option) {
     return
   }
 
-  let BUSINESS_NAME = option.name
-  let SERVER_ADDRESS = option.server_address
-
-  if (!BUSINESS_NAME) BUSINESS_NAME = ACCESS_ADDRESS
-
-  if (!SERVER_ADDRESS || !BUSINESS_NAME) {
-    console.error(`Vue.use(Logger, {
-  name: '请输入业务域',
-  server_address: '请输入错误日志上传地址'
-})`)
-  }
-
   Vue.Logger = err
   Vue.prototype.$Logger = err
 
+  // 配置项
+
+  let BUSINESS_NAME = option.name
+  let SERVER_ADDRESS = option.server
+
   // 存放拦截window.onerror和Vue.common.js的错误信息
+
   let errorLog = {}
 
   // 重写console 获取 vue错误信息
@@ -51,6 +52,8 @@ const Logger = function (Vue, option) {
     }
   }
 
+  // 将错误日志转换为URL 参数
+
   function params (...obj) {
     let param = Object.assign({}, ...obj)
     let str = ''
@@ -61,15 +64,23 @@ const Logger = function (Vue, option) {
     return `/?${str}`
   }
 
+  function checkOption () {
+    if (!errorLog.hasOwnProperty('msg')) errorLog.msg = ''
+
+    if (!SERVER_ADDRESS || !BUSINESS_NAME) { console.error('请检查业务名称和log服务地址是否为空!') }
+
+    if (SERVER_ADDRESS && SERVER_ADDRESS.charAt(SERVER_ADDRESS.length - 1) !== '/') { SERVER_ADDRESS = SERVER_ADDRESS + '/' }
+  }
+
   // this.$Logger(type, object)
 
   function err (data) {
-    let isErrorLog = !!errorLog
-    if (isErrorLog) codeErr = {err: errorLog.msg}
-    let obj = Object.assign({
-      url: ACCESS_ADDRESS
-    }, codeErr, data)
-    let param = params(obj)
+    checkOption ()
+    let param = params(Object.assign({
+      s1: ACCESS_ADDRESS,
+      s2: errorLog.msg
+    }, data))
+
     upload(param)
   }
 
@@ -77,6 +88,7 @@ const Logger = function (Vue, option) {
   function upload (data) {
     let image = new window.Image()
     image.src = `${SERVER_ADDRESS}${BUSINESS_NAME}/logs${data}`
+    console.log(`${SERVER_ADDRESS}${BUSINESS_NAME}/logs${data}`)
   }
 }
 

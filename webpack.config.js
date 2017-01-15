@@ -3,8 +3,7 @@ var webpack = require('webpack')
 module.exports = {
   entry: './logger.js',
   output: {
-    path: 'dist/',  
-    filename: 'logger.min.js'    
+    filename: './logger.min.js'    
   },
   module: {
     loaders: [

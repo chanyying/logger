@@ -1,8 +1,8 @@
 {
   "name": "sd-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "logger",
-  "main": "dist/main.min.js",
+  "main": "logger.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

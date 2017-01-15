@@ -1,18 +1,26 @@
-var webpack = require('webpack')
+const webpack = require('webpack')
+const path = require('path')
 
 module.exports = {
-  entry: './logger.js',
+  entry: './src/index.js',
   output: {
-    filename: './logger.min.js',
-    libraryTarget: 'umd'  
+    path: path.join(__dirname, 'dist'),
+    filename: 'index.js',
+    libraryTarget: 'umd'
   },
   module: {
     loaders: [
       {
-        test: /\.js|jsx$/,
-        loader: "babel",
+        test: /\.js$/,
+        include: [
+          path.resolve(__dirname, 'src')
+        ],
+        exclude: [
+          path.resolve(__dirname, 'node_modules')
+        ],
+        loader: 'babel',
         query: {
-          presets: ['es2015']
+          presets: [ 'es2015' ]
         }
       }
     ]

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/chanyying/logger/issues"
   },
-  "homepage": "https://github.com/chanyying/logger#readme"
+  "homepage": "https://github.com/chanyying/logger#readme",
+  "devDependencies": {
+    "webpack": "^1.14.0"
+  }
 }

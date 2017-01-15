@@ -19,8 +19,9 @@ const Logger = function (Vue, option) {
 
   if (!BUSINESS_NAME) BUSINESS_NAME = ACCESS_ADDRESS
 
-  if (!SERVER_ADDRESS) {
+  if (!SERVER_ADDRESS || !BUSINESS_NAME) {
     console.error(`Vue.use(Logger, {
+  name: '请输入业务域',
   server_address: '请输入错误日志上传地址'
 })`)
   }

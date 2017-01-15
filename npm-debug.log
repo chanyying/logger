@@ -1,0 +1,96 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/caihanyong/.nvm/versions/node/v6.4.0/bin/node',
+1 verbose cli   '/Users/caihanyong/.nvm/versions/node/v6.4.0/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.3
+3 info using node@v6.4.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/caihanyong/test/npm',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/caihanyong/.npm/vue-log/1.0.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/caihanyong/.npm correctMkdir not in flight; initializing
+10 info lifecycle vue-log@1.0.0~prepublish: vue-log@1.0.0
+11 silly lifecycle vue-log@1.0.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/caihanyong/.npm/vue-log/1.0.0/package.tgz',
+12 verbose tar pack   '/Users/caihanyong/test/npm' ]
+13 verbose tarball /Users/caihanyong/.npm/vue-log/1.0.0/package.tgz
+14 verbose folder /Users/caihanyong/test/npm
+15 verbose addLocalTarball adding from inside cache /Users/caihanyong/.npm/vue-log/1.0.0/package.tgz
+16 verbose correctMkdir /Users/caihanyong/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd vue-log@1.0.0
+18 verbose afterAdd /Users/caihanyong/.npm/vue-log/1.0.0/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/caihanyong/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/caihanyong/.npm/vue-log/1.0.0/package/package.json written
+21 silly publish { name: 'vue-log',
+21 silly publish   version: '1.0.0',
+21 silly publish   description: 'test',
+21 silly publish   main: 'index.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   author: { name: 'caihanyong' },
+21 silly publish   license: 'ISC',
+21 silly publish   readme: 'test',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   _id: 'vue-log@1.0.0',
+21 silly publish   _shasum: '8a9f0c5c464036d96139f33941d958b3e608e8a0',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name vue-log
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry http://registry.cnpmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'vue-log',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'vue-log',
+26 silly mapToRegistry   name: 'vue-log',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri http://registry.cnpmjs.org/vue-log
+28 verbose publish registryBase http://registry.cnpmjs.org/
+29 silly publish uploading /Users/caihanyong/.npm/vue-log/1.0.0/package.tgz
+30 verbose request uri http://registry.cnpmjs.org/vue-log
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 13:34:51
+33 verbose request id 23fbd4ae279a99d1
+34 http request PUT http://registry.cnpmjs.org/vue-log
+35 http 403 http://registry.cnpmjs.org/vue-log
+36 verbose headers { server: 'nginx/1.4.6 (Ubuntu)',
+36 verbose headers   date: 'Sun, 15 Jan 2017 05:34:52 GMT',
+36 verbose headers   'content-type': 'application/json; charset=utf-8',
+36 verbose headers   'transfer-encoding': 'chunked',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-current-requests': '1',
+36 verbose headers   'x-readtime': '7',
+36 verbose headers   'content-encoding': 'gzip' }
+37 verbose request invalidating /Users/caihanyong/.npm/registry.cnpmjs.org/vue-log on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: no_perms Private mode enable, only admin can publish this module: vue-log
+39 verbose stack     at makeError (/Users/caihanyong/.nvm/versions/node/v6.4.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (/Users/caihanyong/.nvm/versions/node/v6.4.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+39 verbose stack     at /Users/caihanyong/.nvm/versions/node/v6.4.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:178:7
+39 verbose stack     at Gunzip.onEnd (zlib.js:227:5)
+39 verbose stack     at emitNone (events.js:91:20)
+39 verbose stack     at Gunzip.emit (events.js:185:7)
+39 verbose stack     at endReadableNT (_stream_readable.js:975:12)
+39 verbose stack     at _combinedTickCallback (internal/process/next_tick.js:74:11)
+39 verbose stack     at process._tickCallback (internal/process/next_tick.js:98:9)
+40 verbose statusCode 403
+41 verbose pkgid vue-log
+42 verbose cwd /Users/caihanyong/test/npm
+43 error Darwin 16.3.0
+44 error argv "/Users/caihanyong/.nvm/versions/node/v6.4.0/bin/node" "/Users/caihanyong/.nvm/versions/node/v6.4.0/bin/npm" "publish"
+45 error node v6.4.0
+46 error npm  v3.10.3
+47 error code E403
+48 error no_perms Private mode enable, only admin can publish this module: vue-log
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]

@@ -1,17 +1,28 @@
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/logger.js',
+  entry: './logger.js',
   output: {
     path: 'dist/',  
-    filename: '[name].min.js'    
+    filename: 'logger.min.js'    
   },
   module: {
     loaders: [
-      {test: /\.css$/, loader: 'style!css'}
+      {
+        test: /\.js|jsx$/,
+        loader: "babel",
+        query: {
+          presets: ['es2015']
+        }
+      }
     ]
   },
   plugins: [
-    new webpack.BannerPlugin('This file is created by shuidihuzhu logger')
+    new webpack.BannerPlugin('This file is created by shuidihuzhu logger'),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
   ]
 }

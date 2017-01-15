@@ -33,7 +33,7 @@
     })
 
 ### 性能分析
-####路由时间
+#### 路由时间
 
 	let startTime = ''
 	router.beforeEach(()=>{
@@ -46,7 +46,7 @@
 	})
 
 
-####接口时间
+#### 接口时间
 
 	let startTime = new Date().getTime()
 	

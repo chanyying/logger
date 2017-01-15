@@ -1,5 +1,3 @@
-[![npm version](http://badge.fury.io/js/ng-dialog.svg)](http://badge.fury.io/js/ng-dialog)
-
 ### 安装使用
 
     npm install sd-logger --save-dev

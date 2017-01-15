@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/logger.js',
   output: {
     path: 'dist/',  
-    filename: '[hash].[name].min.js'    
+    filename: '[name].min.js'    
   },
   module: {
     loaders: [

@@ -1,11 +1,19 @@
 {
-  "name": "vue-log",
+  "name": "sd-logger",
   "version": "1.0.0",
-  "description": "",
+  "description": "logger",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chanyying/logger.git"
+  },
   "author": "caihanyong",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chanyying/logger/issues"
+  },
+  "homepage": "https://github.com/chanyying/logger#readme"
 }

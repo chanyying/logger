@@ -1,7 +1,6 @@
 /*
   @author  caihanyong | caihanyong@shuidihuzhu.com
-  @version 1.0 | 2016-10-1
-  @describe  SEA API
+  @version 1.0 | 2017-1-15
   @example
 
  */
@@ -10,7 +9,7 @@
 const ACCESS_ADDRESS = encodeURIComponent(window.location.href)
 
 // Vue 插件
-export default function Logger (Vue, option) {
+const Logger = function (Vue, option) {
   if (Logger.installed) {
     return
   }
@@ -64,10 +63,11 @@ export default function Logger (Vue, option) {
   // this.$Logger(type, object)
 
   function err (data) {
+    let isErrorLog = !!errorLog
+    if (isErrorLog) codeErr = {err: errorLog.msg}
     let obj = Object.assign({
-      url: ACCESS_ADDRESS,
-      err: errorLog.msg
-    }, data)
+      url: ACCESS_ADDRESS
+    }, codeErr, data)
     let param = params(obj)
     upload(param)
   }
@@ -76,6 +76,7 @@ export default function Logger (Vue, option) {
   function upload (data) {
     let image = new window.Image()
     image.src = `${SERVER_ADDRESS}${BUSINESS_NAME}/logs${data}`
+    console.log(`${SERVER_ADDRESS}${BUSINESS_NAME}/logs${data}`)
   }
 }
 
@@ -83,3 +84,4 @@ if (typeof window !== 'undefined' && window.Vue) {
   window.Vue.use(Logger)
 }
 
+module.exports = Logger

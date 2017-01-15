@@ -1,3 +1,4 @@
+[![NPM](https://nodei.co/npm/sd-logger.png)](https://nodei.co/npm/sd-logger/)
 [![npm version](https://badge.fury.io/js/sd-logger.svg)](https://badge.fury.io/js/sd-logger)
 [![GitHub version](https://badge.fury.io/gh/chanyying%2Fsd-Logger.svg)](https://badge.fury.io/gh/chanyying%2Fsd-Logger)
 [![GitHub version](https://img.shields.io/github/issues/chanyying/sd-logger.svg)](https://img.shields.io/github/issues/chanyying/sd-logger.svg)

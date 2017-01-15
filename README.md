@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/sd-logger.svg)](https://badge.fury.io/js/sd-logger)
+
 ### 安装使用
 
     npm install sd-logger --save-dev

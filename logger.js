@@ -77,7 +77,6 @@ const Logger = function (Vue, option) {
   function upload (data) {
     let image = new window.Image()
     image.src = `${SERVER_ADDRESS}${BUSINESS_NAME}/logs${data}`
-    console.log(`${SERVER_ADDRESS}${BUSINESS_NAME}/logs${data}`)
   }
 }
 

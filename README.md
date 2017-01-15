@@ -1,6 +1,6 @@
 ### 安装使用
 
-    npm install sd-logger
+    npm install sd-logger --save-dev
     import Logger from 'sd-logger'
 
 ### 全局安装：

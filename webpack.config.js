@@ -3,7 +3,8 @@ var webpack = require('webpack')
 module.exports = {
   entry: './logger.js',
   output: {
-    filename: './logger.min.js'    
+    filename: './logger.min.js',
+    libraryTarget: 'umd'  
   },
   module: {
     loaders: [

@@ -1,21 +1,21 @@
 {
   "name": "sd-logger",
   "version": "1.1.0",
-  "description": "logger",
+  "description": "sd-logger",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chanyying/logger.git"
+    "url": "git+https://github.com/chanyying/sd-logger.git"
   },
   "author": "caihanyong",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chanyying/logger/issues"
+    "url": "https://github.com/chanyying/sd-logger/issues"
   },
-  "homepage": "https://github.com/chanyying/logger#readme",
+  "homepage": "https://github.com/chanyying/sd-logger#readme",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",

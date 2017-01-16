@@ -12,15 +12,15 @@
 ### 全局安装：
 
     Vue.use(Logger, {
-      name: '业务域名称',
-      server_address: '服务器地址'
+      name: '业务域名称', // 必填
+      server: '服务器地址' // 必填
     })
 
 
 ### 局部使用：
 
-    this.$Logger({
-    // 错误信息
+    this.$Logger(type<必填项>, {
+      // 错误信息
     })
  
 ### 代码异常
@@ -28,27 +28,28 @@
 默认任何情况下，当前访问地址和代码异常会收集起来。
 
     s1: 访问地址
-    s2: 代码错误信息
+    s2: 代码异常
 
 ### 接口异常
 在接口不为0的情况下，处理接口错误异常，打点示例:
 
-    this.$Logger({
-	  code: res.data.code,
-	  msg: res.data.msg
+    this.$Logger(type, {
+	  api_code: res.data.code,
+	  api_msg: res.data.msg
     })
 
 ### 性能分析
+
 #### 路由时间
 
 	let startTime = ''
 	router.beforeEach(()=>{
-		startTime = new Date().getTime()
+	  startTime = new Date().getTime()
 	})
 	router.afterEach(()=>{
-		this.$Logger({
-			router_time: new Date().getTime() - starTime
-		})
+	  this.$Logger({
+		router_time: new Date().getTime() - starTime
+	  })
 	})
 
 
@@ -59,6 +60,6 @@
     Vue.Logger({
 		api_url:  request.url,
 	    api_time:  new Date().getTime() - startTime,
-	    code:  res.data.code,
-		msg:  res.data.msg
+	    api_code:  res.data.code,
+		api_msg:  res.data.msg
     })

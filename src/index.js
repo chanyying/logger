@@ -74,17 +74,25 @@ const Logger = function (Vue, option) {
 
   // this.$Logger(type, object)
 
-  function err (data) {
+  function err (error_type, data) {
     checkOption ()
-    let param = params(Object.assign({
+
+    let param = params({
+      t1: BUSINESS_NAME,
+      t2: error_type || '',
       s1: ACCESS_ADDRESS,
-      s2: errorLog.msg
-    }, data))
+      s2: errorLog.msg,
+      s3: data.api_time || '',
+      s4: data.router_time || '',
+      s5: data.api_url || '',
+      s6: data.api_code || '',
+      s7: data.api_msg || ''
+    })
 
     upload(param)
   }
 
-  // 上传业务名称，错误类型分类，错误信息，
+  // 上传业务名称，错误类型分类，错误信息
   function upload (data) {
     let image = new window.Image()
     image.src = `${SERVER_ADDRESS}${BUSINESS_NAME}/logs${data}`

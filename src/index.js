@@ -95,7 +95,7 @@ const Logger = function (Vue, option) {
   // 上传业务名称，错误类型分类，错误信息
   function upload (data) {
     let image = new window.Image()
-    image.src = `${SERVER_ADDRESS}${BUSINESS_NAME}/logs${data}`
+    image.src = `${SERVER_ADDRESS}logs${data}`
   }
 }
 

@@ -74,12 +74,12 @@ const Logger = function (Vue, option) {
 
   // this.$Logger(type, object)
 
-  function err (error_type, data) {
+  function err (logs_type, data) {
     checkOption ()
 
     let param = params({
       t1: BUSINESS_NAME,
-      t2: error_type || '',
+      t2: logs_type || '',
       s1: ACCESS_ADDRESS,
       s2: errorLog.msg,
       s3: data.api_time || '',

@@ -1,6 +1,6 @@
 {
   "name": "sd-logger",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "sd-logger",
   "main": "dist/index.js",
   "scripts": {

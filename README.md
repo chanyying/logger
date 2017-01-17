@@ -22,13 +22,7 @@
     this.$Logger(type<必填项>, {
       // 错误信息
     })
- 
-### 代码异常
 
-默认任何情况下，当前访问地址和代码异常会收集起来。
-
-    s1: 访问地址
-    s2: 代码异常
 
 ### 接口异常
 在接口不为0的情况下，处理接口错误异常，打点示例:
@@ -61,8 +55,16 @@
       api_url:  request.url,
       api_time:  new Date().getTime() - startTime,
       api_code:  res.data.code,
-      api_msg:  res.data.msg
+      api_msg:  res.data.msg,
+      api_token: request.token
     })
+
+### 代码异常
+
+默认任何情况下，当前访问地址和代码异常会收集起来。
+
+    s1: 访问地址
+    s2: 代码异常
 
 ### 接口案例
 
@@ -75,12 +77,14 @@
     s5: API 地址,
     s6: API code,
     s7: API 错误信息
-    logs/?t1=''&t2=''&s1='-'&s2='-'&s3='-'&s4='-'&s5='-'&s6='-'&s7='-'
- 
+    s8: API Token
+    
+    logs/?t1=''&t2=''&s1='-'&s2='-'&s3='-'&s4='-'&s5='-'&s6='-'&s7='-'&s8='-'
+
 ### 日志类型
 
     type: {
-      1: 代码异常
+      1: 代码异常 // 默认
       2: 接口异常
       3: 性能分析
       4: 特殊状态码

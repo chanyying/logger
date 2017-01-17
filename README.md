@@ -34,32 +34,55 @@
 在接口不为0的情况下，处理接口错误异常，打点示例:
 
     this.$Logger(type, {
-	  api_code: res.data.code,
-	  api_msg: res.data.msg
+      api_code: res.data.code,
+      api_msg: res.data.msg
     })
 
 ### 性能分析
 
 #### 路由时间
 
-	let startTime = ''
-	router.beforeEach(()=>{
-	  startTime = new Date().getTime()
-	})
-	router.afterEach(()=>{
-	  this.$Logger({
-		router_time: new Date().getTime() - starTime
-	  })
-	})
+    let startTime = ''
+    router.beforeEach(()=>{
+      startTime = new Date().getTime()
+    })
+    router.afterEach(()=>{
+      this.$Logger({
+        router_time: new Date().getTime() - starTime
+      })
+    })
 
 
 #### 接口时间
 
-	let startTime = new Date().getTime()
-	
+    let startTime = new Date().getTime()
+    
     Vue.Logger({
-		api_url:  request.url,
-	    api_time:  new Date().getTime() - startTime,
-	    api_code:  res.data.code,
-		api_msg:  res.data.msg
+      api_url:  request.url,
+      api_time:  new Date().getTime() - startTime,
+      api_code:  res.data.code,
+      api_msg:  res.data.msg
     })
+
+### 接口案例
+
+    t1: 业务名称,
+    t2: 日志类型,
+    s1: 访问地址,
+    s2: 代码异常,
+    s3: API请求时间,
+    s4: 路由切换时间,
+    s5: API 地址,
+    s6: API code,
+    s7: API 错误信息
+    logs/?t1=''&t2=''&s1='-'&s2='-'&s3='-'&s4='-'&s5='-'&s6='-'&s7='-'
+ 
+### 日志类型
+
+    type: {
+      1: 代码异常
+      2: 接口异常
+      3: 性能分析
+      4: 特殊状态码
+      5: 普通打点
+    }

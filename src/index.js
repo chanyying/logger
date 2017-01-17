@@ -86,7 +86,7 @@ const Logger = function (Vue, option) {
       s4: data.router_time || '-',
       s5: data.api_url || '-',
       s6: data.api_code || '-',
-      s7: data.api_msg || '-'
+      s7: data.api_msg || '-',
       s8: data.api_token || '-'
     })
 

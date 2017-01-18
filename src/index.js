@@ -17,14 +17,6 @@
 // 访问地址，发生错误信息的地址
 const ACCESS_ADDRESS = encodeURIComponent(window.location.href)
 
-// 处理垃圾回收
-const unique = (function () {
-  var time= (new Date()).getTime()+'-', i=0
-  return function () {
-     return time + (i++)
-  }
-})()
-
 // Vue 插件
 const Logger = function (Vue, option) {
   if (Logger.installed) {
@@ -80,18 +72,6 @@ const Logger = function (Vue, option) {
     if (SERVER_ADDRESS && SERVER_ADDRESS.charAt(SERVER_ADDRESS.length - 1) !== '/') { SERVER_ADDRESS = SERVER_ADDRESS + '/' }
   }
 
-  function imgLog(url) {
-    var data = window['imgLogData'] || (window['imgLogData'] = {})
-    var img = new Image()
-    var uid = unique()
-    img.onload = img.onerror = function () {
-        img.onload = img.onerror = null
-        img = null
-        delete data[uid]
-    }
-    img.src = url + '&_uid=' + uid
-  }
-
   // this.$Logger(type, object)
 
   function err (logs_type, data) {
@@ -104,8 +84,8 @@ const Logger = function (Vue, option) {
       s2: errorLog.msg || '-',
       s3: data.api_time || '-',
       s4: data.router_time || '-',
-      s5: data.api_url ? encodeURIComponent(data.api_url) : '-',
-      s6: data.api_code.toString() || '-',
+      s5: data.api_url || '-',
+      s6: data.api_code || '-',
       s7: data.api_msg || '-',
       s8: data.api_token || '-'
     })
@@ -114,7 +94,8 @@ const Logger = function (Vue, option) {
 
   // 上传业务名称，错误类型分类，错误信息
   function upload (data) {
-    imgLog(`${SERVER_ADDRESS}logs${data}`)
+    var img = new Image()
+    img.src = `${SERVER_ADDRESS}logs${data}`
   }
 }
 

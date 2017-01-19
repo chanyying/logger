@@ -42,6 +42,7 @@ const Logger = function (Vue, option) {
       errorLog = {
         msg: errorlog
       }
+      err(1, {})
       origin.call(console, errorlog)
     }
   })(console.error)

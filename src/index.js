@@ -52,6 +52,7 @@ const Logger = function (Vue, option) {
     errorLog = {
       msg: messageOrEvent + ' at ' + source + ':' + lineno + ':' + colno
     }
+    err(1, {})
   }
 
   // 将错误日志转换为URL 参数
@@ -79,7 +80,7 @@ const Logger = function (Vue, option) {
 
     let param = params({
       t1: BUSINESS_NAME,
-      t2: logs_type || '1',
+      t2: logs_type,
       s1: ACCESS_ADDRESS,
       s2: errorLog.msg || '-',
       s3: data.api_time || '-',

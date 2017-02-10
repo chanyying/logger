@@ -89,7 +89,8 @@ const Logger = function (Vue, option) {
       s5: data.api_url || '-',
       s6: data.api_code || '-',
       s7: data.api_msg || '-',
-      s8: data.api_token || '-'
+      s8: data.api_token || '-',
+      s9: data.msg || '-'
     })
     upload(param)
   }

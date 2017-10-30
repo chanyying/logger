@@ -17,6 +17,19 @@
 // 访问地址，发生错误信息的地址
 const ACCESS_ADDRESS = encodeURIComponent(window.location.href)
 
+const randomTime = () => {
+  return +new Date() + '_' + Math.floor(Math.random() * 1000)
+}
+
+const cdnReport = (server, err) => {
+  var _img_id = '_img_' + randomTime()
+  var imgerror = window[_img_id] = new Image()
+  imgerror.onload = imgerror.onerror = function () {
+    window[_img_id] = null
+  }
+  imgerror.src = server + err + `&rds=_img_${randomTime()}`
+}
+
 // Vue 插件
 const Logger = function (Vue, option) {
   if (Logger.installed) {
@@ -91,13 +104,7 @@ const Logger = function (Vue, option) {
       s7: data.api_msg || '-',
       s8: data.api_token || '-'
     })
-    upload(param)
-  }
-
-  // 上传业务名称，错误类型分类，错误信息
-  function upload (data) {
-    var img = new Image()
-    img.src = `${SERVER_ADDRESS}logs${data}`
+    cdnReport(`${SERVER_ADDRESS}logs`, param)
   }
 }
 
